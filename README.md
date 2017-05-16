@@ -21,3 +21,7 @@
         ------ expample 例子
         ------ scripts 项目运行脚本
 ```
+
+## License
+
+[MIT](https://github.com/Chanran/distributedCrawling/License)
