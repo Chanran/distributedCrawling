@@ -8,8 +8,10 @@
 
 ## 技术
 
-- python 2.7
-- scrapy-redis
+- celery: 任务切割
+- flower: 监控
+- fabric: 自动化
+- scrapy: 爬虫
 
 
 ## 目录

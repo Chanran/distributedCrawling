@@ -8,3 +8,7 @@
 3. 复制镜像
     > 在virtualbox面板上复制安装好的master为slaver(复制两台，命名随意)
     
+## 帮助
+- [本机终端SSH连接VirtualBox中的Linux虚拟机](https://itbilu.com/linux/management/4Jy8JsAIM.html)
+- [ssh登录失败:’Too many authentication failures for root’](http://bbs.iosre.com/t/ssh-too-many-authentication-failures-for-root/306)
+- [实现scrapy-redis分布式网络爬虫例子](http://yanyan0108.blog.163.com/blog/static/173747928201591524728727/)
