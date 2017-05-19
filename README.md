@@ -11,7 +11,7 @@
 - celery: 任务切割
 - flower: 监控
 - fabric: 自动化
-- scrapy: 爬虫
+- scrapy && scrapy-redis: 分布式爬虫框架
 
 
 ## 目录
