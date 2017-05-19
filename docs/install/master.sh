@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 650751 is sudo user's password
-echo "650751" | sudo -S cp /etc/apt/sources.list /etc/apt/sources.list_backup
+echo "123456" | sudo -S cp /etc/apt/sources.list /etc/apt/sources.list_backup
 sudo echo "deb https://mirrors.ustc.edu.cn/ubuntu/ trusty main restricted universe multiverse
 deb https://mirrors.ustc.edu.cn/ubuntu/ trusty-security main restricted universe multiverse
 deb https://mirrors.ustc.edu.cn/ubuntu/ trusty-updates main restricted universe multiverse
