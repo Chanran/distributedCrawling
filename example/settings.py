@@ -27,3 +27,8 @@ LOG_LEVEL = 'DEBUG'
 # Introduce an artifical delay to make use of parallelism. to speed up the
 # crawl.
 DOWNLOAD_DELAY = 1
+
+# before deploying, host must change to redis server url
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+

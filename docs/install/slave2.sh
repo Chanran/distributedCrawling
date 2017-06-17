@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # apt source list
-echo "650751" | sudo -S cp /etc/apt/sources.list /etc/apt/sources.list_backup
+echo "123456" | sudo -S cp /etc/apt/sources.list /etc/apt/sources.list_backup
 sudo echo "deb http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
 deb http://cn.archive.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
 deb http://cn.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
@@ -21,10 +21,23 @@ echo "export LC_ALL=C" >> ~/.bash_profile
 
 sudo apt-get upgrade -y
 
+sudo apt-get install -y python-pip
+
 sudo apt-get install -y git
 
-sudo apt-get install -y redis-server
-sudo sed -i -e 's|bind 127.0.0.1|#bind 127.0.0.1|' /etc/redis.conf
-sudo service redis restart
+sudo apt-get install -y python-lxml
 
-sudo apt-get install -y mysql-server
+sudo apt-get install -y python-twisted-web
+
+sudo apt-get install -y python-dev
+
+sudo pip install mysql-python
+sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy
+sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy-redis
+sudo pip install redis
+sudo mkdir -p /web/python
+sudo chown -R blue:blue /web/python
+sudo chmod -R 755 /web/python
+cd /web/python
+git clone https://github.com/Chanran/distributedCrawling.git
+
