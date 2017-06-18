@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 123456 is sudo user's password
-echo "123456" | sudo -S cp /etc/apt/sources.list /etc/apt/sources.list_backup
+echo "650751" | sudo -S cp /etc/apt/sources.list /etc/apt/sources.list_backup
 sudo echo "deb http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
 deb http://cn.archive.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
 deb http://cn.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse

@@ -10,6 +10,33 @@
     > 分别进入slave1,slave2,database
     > 修改/etc/hostname里的文字为slave1(哪台主机就命名成什么名字)
     > 修改/etc/hosts里的127.0.1.1为slave1(哪台主机就命名成什么名字)
+    > 重启虚拟机
+
+## 主机连接虚拟机
+    1. 主机的/etc/hosts 里加上
+    
+    ```
+    master的ip master
+    database的ip database
+    slave1的ip slave1
+    slave2的ip slave2
+    ```
+    
+    2. 连接master
+    
+    ```
+    ssh blue@master
+    ```
+    
+    3. master连接database、slave1、slave2
+        1. 给master的hosts加上
+            ```
+            master的ip master
+            database的ip database
+            slave1的ip slave1
+            slave2的ip slave2
+            ```
+        2. 在master生成ssh key然后复制到database、slave1、slave2，[参考](http://blog.csdn.net/leexide/article/details/17252369)
     
 ## 帮助
 - [本机终端SSH连接VirtualBox中的Linux虚拟机](https://itbilu.com/linux/management/4Jy8JsAIM.html)
