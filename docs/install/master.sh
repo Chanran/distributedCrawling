@@ -32,6 +32,7 @@ sudo apt-get install -y python-twisted-web
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy-redis
 sudo pip install redis
+sudo pip install bottle
 sudo mkdir -p /web/python
 sudo chown -R blue:blue /web/python
 sudo chmod -R 755 /web/python
