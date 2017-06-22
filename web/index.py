@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 
 from bottle import route, run, static_file, error, request
+import redis
+
+pool = redis.ConnectionPool(host='localhost', port=6379)
+r = redis.Redis(connection_pool=pool)
 
 
 @route('/', method='GET')
@@ -11,7 +15,10 @@ def index():
 
 @route('/urls', method='POST')
 def handle_urls():
-    urls = request.forms.get('urls')
+    urls = request.forms.get('urls').split()
+    print(urls)
+    for i, url in enumerate(urls):
+        r.lpush("mycrawler:start_urls", url)
     return "success"
 
 

@@ -18,12 +18,23 @@
 
 ```
 ------ DistributedSpider
-        ------ docs  项目相关文档
+        ------ docs              项目相关文档
                 ------- install  项目安装脚本
-        ------ expample 例子
-        ------ scripts 项目运行脚本
+        ------ expample          例子
+        ------ web               Python Web应用，接收urls
 ```
+
+## 启动
+
+```
+python web/index.py # 启动web应用
+cd example
+scrapy crawl mycrawler_redis # 启动爬虫
+```
+
+打开[web应用](http://localhost:9001/)，输入要爬取的url并提交。
+
 
 ## License
 
-[MIT](https://github.com/Chanran/distributedCrawling/License)
+[MIT](./LICENSE)

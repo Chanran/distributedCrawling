@@ -23,6 +23,8 @@ sudo apt-get upgrade -y
 
 sudo apt-get install -y python-pip
 
+sudo apt-get install -y python-redis
+
 sudo apt-get install -y git
 
 sudo apt-get install -y python-lxml
