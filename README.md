@@ -8,11 +8,9 @@
 
 ## 技术
 
-- celery: 任务切割
-- flower: 监控
-- fabric: 自动化
+- python bottle web框架
 - scrapy && scrapy-redis: 分布式爬虫框架
-
+- mysql
 
 ## 目录
 
@@ -24,15 +22,37 @@
         ------ web               Python Web应用，接收urls
 ```
 
+## 部署
+
+    > 根据[部署的文档](./docs/README.md)安装多台ubuntu16.04 server lts，用docs/install文件夹下的shell脚本进行自动化安装。
+    不同用途的server要执行不同的shell文件。slave可以有多台。
+
 ## 启动
 
-```
-python web/index.py # 启动web应用
-cd example
-scrapy crawl mycrawler_redis # 启动爬虫
-```
+1. database server:
+    
+    ```
+        service mysql start         # 启动mysql
+        redis-server                # 启动redis server
+    ```
 
-打开[web应用](http://localhost:9001/)，输入要爬取的url并提交。
+2. slave1,slave2 ... slaveN:
+
+    ```
+    cd /web/python/example
+    scrapy crawl mycrawler_redis    # myscrawler_redis改成要启动的爬虫
+    ```
+
+3. master
+
+    ```
+    cd /web/python/web
+    python index.py                 # 启动web应用
+    cd /web/python/example
+    scrapy crawl mycrawler_redis    # myscrawler_redis改成要启动的爬虫
+    ```
+
+4. 打开[web应用](http://localhost:9001/)(localhost修改为master的ip或者域名)，输入要爬取的url并提交。
 
 
 ## License

@@ -2,11 +2,11 @@
 
 ## 安装指引
 
-1. [下载ubuntu-14.04.5-server-amd64.iso ](http://releases.ubuntu.com/14.04/ubuntu-14.04.5-server-amd64.iso)
-2. [使用virtualbox安装ubuntu-14.04.5-server-amd64.iso](http://www.linuxidc.com/Linux/2016-08/134583.htm)
+1. [ubuntu-16.04-server-amd64.iso](http://releases.ubuntu.com/16.04/ubuntu-16.04-server-amd64.iso)
+2. [使用vmware(文章是virtualbox，但是无所谓)安装ubuntu-16.04-server-amd64.iso](http://www.linuxidc.com/Linux/2016-08/134583.htm)
     > 主机名命名为master,用户名命名为blue,密码命名为123456
 3. 复制镜像
-    > 在virtualbox面板上复制安装好的master为新主机(复制3台，命名分别为slave1,slave2,database)
+    > 在vmware面板上复制安装好的master为新主机(复制3台，命名分别为slave1,slave2,database)
     > 分别进入slave1,slave2,database
     > 修改/etc/hostname里的文字为slave1(哪台主机就命名成什么名字)
     > 修改/etc/hosts里的127.0.1.1为slave1(哪台主机就命名成什么名字)
