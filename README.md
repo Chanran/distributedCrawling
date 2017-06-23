@@ -24,16 +24,16 @@
 
 ## 部署
 
-    > 根据[部署的文档](./docs/README.md)安装多台ubuntu16.04 server lts，用docs/install文件夹下的shell脚本进行自动化安装。
-    不同用途的server要执行不同的shell文件。slave可以有多台。
+> 根据[部署的文档](./docs/README.md)安装多台ubuntu16.04 server lts，用docs/install文件夹下的shell脚本进行自动化安装。
+> 不同用途的server要执行不同的shell文件。slave可以有多台。
 
 ## 启动
 
 1. database server:
     
     ```
-        service mysql start         # 启动mysql
-        redis-server                # 启动redis server
+    service mysql start         # 启动mysql
+    redis-server                # 启动redis server
     ```
 
 2. slave1,slave2 ... slaveN:
