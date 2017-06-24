@@ -16,6 +16,7 @@
 
 ```
 ------ DistributedSpider
+        ------ config            项目配置文档
         ------ docs              项目相关文档
                 ------- install  项目安装脚本
         ------ expample          例子
@@ -24,8 +25,11 @@
 
 ## 部署
 
-> 根据[部署的文档](./docs/README.md)安装多台ubuntu16.04 server lts，用docs/install文件夹下的shell脚本进行自动化安装。
-> 不同用途的server要执行不同的shell文件。slave可以有多台。
+> 根据[部署的文档](./docs/README.md)安装多台ubuntu16.04 server lts，用docs/install文件夹下的shell脚本进行自动化安装。不同用途的server要执行不同的shell文件。slave可以有多台。
+
+> **[请看config/README.md完成分布式配置](./config/README.md)**。
+
+> 将example文件夹下面的settings.py里的redis host和port修改成现有的环境依赖。
 
 ## 启动
 
@@ -48,7 +52,7 @@
     ```
     cd /web/python/web
     python index.py                 # 启动web应用
-    cd /web/python/example
+    cd /web/python/distributedCrawling/example
     scrapy crawl mycrawler_redis    # myscrawler_redis改成要启动的爬虫
     ```
 
