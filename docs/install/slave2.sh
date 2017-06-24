@@ -23,6 +23,8 @@ echo "export LC_ALL=C" >> ~/.bash_profile
 
 sudo apt-get upgrade -y
 
+sudo apt-get install -y openssh-server
+
 sudo apt-get install -y python-pip
 
 sudo apt-get install -y python-redis

@@ -26,6 +26,8 @@ echo "export LC_ALL=C" >> ~/.bash_profile
 
 sudo apt-get upgrade -y
 
+sudo apt-get install openssh-server
+
 sudo apt-get install -y git
 
 sudo apt-get install -y redis-server
