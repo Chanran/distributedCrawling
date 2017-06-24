@@ -16,7 +16,7 @@ deb http://archive.canonical.com/ubuntu/ xenial partner
 deb http://extras.ubuntu.com/ubuntu/ xenial main" > sources.list
 
 sudo mv ./sources.list /etc/apt/
-sudo apt-get update
+sudo apt-get update --fix-missing
 echo "export LC_ALL=C" >> ~/.bash_profile
 
 sudo apt-get upgrade -y
@@ -30,6 +30,16 @@ sudo apt-get install -y git
 sudo apt-get install -y python-lxml
 
 sudo apt-get install -y python-twisted-web
+
+sudo apt-get install -y libxml2-dev
+
+sudo apt-get install -y libxslt1-dev
+
+sudo apt-get install -y zlib1g-dev
+
+sudo apt-get install -y libffi-dev
+
+sudo apt-get install -y libssl-dev
 
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy-redis
