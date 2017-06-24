@@ -18,7 +18,7 @@ def handle_urls():
     urls = request.forms.get('urls').split()
     print(urls)
     for i, url in enumerate(urls):
-        r.lpush("mycrawler:start_urls", url)
+        r.lpush("dangdang:start_urls", url)
     return "success"
 
 

@@ -15,6 +15,8 @@ deb-src http://cn.archive.ubuntu.com/ubuntu/ xenial-proposed main restricted uni
 deb http://archive.canonical.com/ubuntu/ xenial partner
 deb http://extras.ubuntu.com/ubuntu/ xenial main" > sources.list
 
+sudo ufw allow 22
+
 sudo mv ./sources.list /etc/apt/
 sudo apt-get update --fix-missing
 echo "export LC_ALL=C" >> ~/.bash_profile
