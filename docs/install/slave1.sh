@@ -31,13 +31,11 @@ sudo apt-get install -y python-twisted-web
 
 sudo apt-get install -y python-dev
 
-sudo pip install mysql-python
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy-redis
 sudo pip install redis
 sudo mkdir -p /web/python
-sudo chown -R blue:blue /web/python
-sudo chmod -R 755 /web/python
+sudo chmod -R 777 /web/python
 cd /web/python
 git clone https://github.com/Chanran/distributedCrawling.git
 

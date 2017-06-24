@@ -24,7 +24,7 @@ sudo apt-get upgrade -y
 sudo apt-get install -y git
 
 sudo apt-get install -y redis-server
-sudo sed -i -e 's|bind 127.0.0.1|#bind 127.0.0.1|' /etc/redis.conf
+sudo sed -i -e 's|bind 127.0.0.1|#bind 127.0.0.1|' /etc/redis/redis.conf
 sudo service redis restart
 
 sudo apt-get install -y mysql-server
