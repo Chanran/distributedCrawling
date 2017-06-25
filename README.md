@@ -42,8 +42,9 @@
 
 2. slave1,slave2 ... slaveN:
 
-    > **必须修改各slave下路径为/web/python/distributedCrawling/conf.ini文件对应的配置**
 
+    > **必须修改各slave下路径为/web/python/distributedCrawling/config/conf.ini文件对应的配置**
+    
     ```
     cd /web/python/distributedCrawling/example
     scrapy crawl mycrawler_redis    # myscrawler_redis改成要启动的爬虫
@@ -51,7 +52,7 @@
 
 3. master
 
-    > **必须修改各slave下路径为/web/python/distributedCrawling/conf.ini文件对应的配置**
+    > **必须修改各slave下路径为/web/python/distributedCrawling/config/conf.ini文件对应的配置**
     
     ```
     cd /web/python/web
