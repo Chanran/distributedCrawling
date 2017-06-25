@@ -43,7 +43,7 @@
 2. slave1,slave2 ... slaveN:
 
     ```
-    cd /web/python/example
+    cd /web/python/distributedCrawling/example
     scrapy crawl mycrawler_redis    # myscrawler_redis改成要启动的爬虫
     ```
 
