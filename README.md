@@ -41,7 +41,8 @@
     ```
 
 2. slave1,slave2 ... slaveN:
-    **必须修改各slave下路径为/web/python/distributedCrawling/conf.ini文件对应的配置
+
+    > **必须修改各slave下路径为/web/python/distributedCrawling/conf.ini文件对应的配置**
 
     ```
     cd /web/python/distributedCrawling/example
@@ -49,7 +50,9 @@
     ```
 
 3. master
-    **必须修改各slave下路径为/web/python/distributedCrawling/conf.ini文件对应的配置
+
+    > **必须修改各slave下路径为/web/python/distributedCrawling/conf.ini文件对应的配置**
+    
     ```
     cd /web/python/web
     python index.py                 # 启动web应用
