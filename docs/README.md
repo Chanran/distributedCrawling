@@ -7,9 +7,9 @@
     > 主机名命名为master,用户名命名为blue,密码命名为123456
 3. 复制镜像
     > 在vmware面板上复制安装好的master为新主机(复制3台，命名分别为slave1,slave2,database)
-    > 分别进入slave1,slave2,database
-    > 修改/etc/hostname里的文字为slave1(哪台主机就命名成什么名字)
-    > 修改/etc/hosts里的127.0.1.1为slave1(哪台主机就命名成什么名字)
+    > 分别进入slaveN,database (N=1,2,3,4...)
+    > 修改/etc/hostname里的文字为slaveN(哪台主机就命名成什么名字)
+    > 修改/etc/hosts里的127.0.1.1为slaveN(哪台主机就命名成什么名字)
     > 重启虚拟机
 
 ## 主机连接虚拟机

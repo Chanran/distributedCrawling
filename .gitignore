@@ -1,3 +1,6 @@
 .idea
 config/config.ini
 *.log
+example/test/*
+example/output/*
+example/right_output/*
