@@ -34,10 +34,14 @@
 ## 启动
 
 1. database server:
+
+
+    > **必须修改master下路径为/web/python/distributedCrawling/process_items.py文件对应的数据库配置**
     
     ```
     service mysql start         # 启动mysql
     redis-server                # 启动redis server
+    
     ```
 
 2. slave1,slave2 ... slaveN:

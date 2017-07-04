@@ -28,6 +28,10 @@ sudo apt-get upgrade -y
 
 sudo apt-get install openssh-server
 
+sudo apt-get install -y libmysqld-dev
+
+sudo pip install mysql-python
+
 sudo apt-get install -y git
 
 sudo apt-get install -y redis-server

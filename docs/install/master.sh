@@ -50,6 +50,7 @@ sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy-redis
 sudo pip install redis
 sudo pip install bottle
+
 sudo mkdir -p /web/python
 sudo chmod -R 777 /web/python
 cd /web/python

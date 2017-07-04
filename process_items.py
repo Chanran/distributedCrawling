@@ -10,12 +10,14 @@ import logging
 import pprint
 import sys
 import time
-
+import MySQLdb
 from scrapy_redis import get_redis
 
 
 logger = logging.getLogger('process_items')
 
+conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='gzr123123', db = 'dangdang', port=3306,charset="utf8")
+cur = conn.cursor()
 
 def process_items(r, keys, timeout, limit=0, log_every=1000, wait=.1):
     """Process items from a redis queue.
@@ -48,9 +50,22 @@ def process_items(r, keys, timeout, limit=0, log_every=1000, wait=.1):
             continue
 
         try:
-            name = item.get('name') or item.get('title')
-            url = item.get('url') or item.get('link')
-            logger.debug("[%s] Processing item: %s <%s>", source, name, url)
+            sqlstr = '''insert into infos(name,picurl,url,comment,publish_author,publish_time,publish_company,price,crawled,spider) 
+            values('%s','%s','%s','%d','%s','%s','%s','%s','%s','%s')'''%(
+            item['name'],
+            item['picurl'],
+            item['url'],
+            int(item['comment'].encode('UTF-8')),
+            item['publish_author'],
+            item['publish_time'],
+            item['publish_company'],
+            item['price'],
+            item['crawled'],
+            item['spider']);
+
+            print(sqlstr)
+            cur.execute(sqlstr)
+            conn.commit()
         except KeyError:
             logger.exception("[%s] Failed to process item:\n%r",
                              source, pprint.pformat(item))
@@ -98,6 +113,8 @@ def main():
     except Exception:
         logger.exception("Unhandled exception")
         retcode = 2
+    
+    cur.close()
 
     return retcode
 

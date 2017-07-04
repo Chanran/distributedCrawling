@@ -22,3 +22,16 @@ class ExampleLoader(ItemLoader):
     default_input_processor = MapCompose(lambda s: s.strip())
     default_output_processor = TakeFirst()
     description_out = Join()
+
+
+class DangdangItem(Item):
+    name = Field()
+    picurl = Field()
+    url = Field()
+    comment = Field()
+    publish_author = Field()
+    publish_time = Field()
+    publish_company = Field()
+    price = Field()
+    crawled = Field()
+    spider = Field()
