@@ -5,3 +5,5 @@ example/test/*.html
 example/output/*.html
 example/right_output/*.html
 example/ti/*.html
+example/*.pyc
+example/spiders/*.pyc
