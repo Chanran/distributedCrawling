@@ -9,7 +9,7 @@ import scrapy
 import urllib
 import time
 import re
-
+import chardet
 class Dangdang(RedisCrawlSpider):
     """Spider that reads urls from redis queue (myspider:start_urls)."""
     name = 'dangdang'

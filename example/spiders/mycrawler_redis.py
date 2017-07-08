@@ -3,11 +3,14 @@ from scrapy.linkextractors import LinkExtractor
 
 from scrapy_redis.spiders import RedisCrawlSpider
 
+import chardet
+
+
 
 class MyCrawler(RedisCrawlSpider):
     """Spider that reads urls from redis queue (myspider:start_urls)."""
     name = 'mycrawler_redis'
-    redis_key = 'mycrawler:start_urls'
+    redis_key = 'dangdang:start_urls'
 
     rules = (
         # follow all links
@@ -21,6 +24,8 @@ class MyCrawler(RedisCrawlSpider):
         super(MyCrawler, self).__init__(*args, **kwargs)
 
     def parse_page(self, response):
+        # charset = chardet.detect(response.text);
+        # print response.text
         return {
             'name': response.css('title::text').extract_first(),
             'url': response.url,
