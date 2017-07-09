@@ -63,7 +63,7 @@ def process_items(r, keys, timeout, limit=0, log_every=1000, wait=.1):
             item['crawled'],
             item['spider']);
 
-            print(sqlstr)
+            # print(sqlstr)
             cur.execute(sqlstr)
             conn.commit()
         except KeyError:

@@ -1,0 +1,64 @@
+1.运行docs/install下的脚本，配置基本环境(注意有更新)
+    其中master中要多安装一个MySQLdb包，已更新master的安装脚本
+    注意用git　pull更新最新代码
+
+    安装完后链接database，创建，库dangdang，表infos。对着根目录下的info.sql
+２.更改配置文件
+    １）master配置项目根目录下config/config.ini,默认是没有的，自己去复制config_template.ini，
+        修改其中的web_host，web_path等
+    ２）slave下修改目录为 /example/settings.py,修改该文件中的REDIS_HOST配置项，值应为database下的ip
+        注意其他slave相同地配置
+    3）启动mysql服务，启动redis服务，修改mysql文件配置：
+        修改配置mysql配置文件，路径为/etc/mysql/mysql.conf.d/mysqld.cnf
+        找到配置项bind_address,把该项配置注释掉
+        重启mysql服务，service mysql reload service mysql restart
+        这个是为了启动让mysql开启远程链接
+        在database 下运行指令：netstat -anp | grep 3306
+        如果没有看到127.0.0.1：3306字样而是0:::3306那么表示配置成功
+        在database下进入mysql终端，授权某个远程链接的用户。
+
+        如果你想允许用户zz从ip为192.168.1.3的主机连接到mysql服务器，并使用123456作为密码
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.1.3' IDENTIFIED BY '123456' WITH GRANT OPTION;
+
+        如果终端提示sql ok，并且查看用户：
+        运行　select user,host from mysql.user;
+        可以看到加入的用户
+    4)master 下修改项目根目录下process_items.py文件
+        修改其中下面的配置项
+        conn = MySQLdb.connect(host='127.0.0.1', user='root', passwd='gzr123123', db = 'dangdang', port=3306,charset="utf8")
+    ４）解决不可爬去gb2312编码的问题
+        终端运行指令locale-gen选择所有语言包
+
+    
+３.启动web服务
+    １）终端链接master下进入/web/python/distributedCrawling/web，运行python index.py
+        终端提示：
+        Bottle v0.12.13 server starting up (using WSGIRefServer())...
+        Listening on http://192.168.223.128:9001/
+        Hit Ctrl-C to quit.
+
+        浏览器输入　master:9001，如无错误，会显示页面
+
+    ２）新建终端，链接master，进入路径为：
+        /web/python/distributedCrawling下　运行脚本：
+        python process_items.py dangdang:items --host=192.168.223.131 --port=6379 --verbose
+        其中上面的shell的配置自己对应修改
+        终端提示：
+        INFO:process_items:Waiting for items in 'dangdang:items' (server: 192.168.223.131)
+        表示正在监听爬取的内容
+
+    ３）启动爬虫
+        终端链接slavex,进入路径为 /web/python/distributedCrawling/example下，
+        运行脚本：
+        scrapy crawl dangdang
+        如无错误提示：终端会提示正在监听：
+        2017-07-09 17:58:02 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+
+    ４）在浏览器中输入地址：
+        http://bang.dangdang.com/books/bestsellers/01.00.00.00.00.00-recent30-0-0-1-1
+        本次项目中只爬去当当的销售板块内容
+４.查看爬虫状态
+    １）在slave终端下看是否有正确显示
+    ２)链接数据库，select * from　infos;查看数据。如果有乱码，请自行配置系统编码
+    参考链接：
+    https://www.polarxiong.com/archives/ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E8%AE%BE%E7%BD%AElocale%E4%B8%BA%E4%B8%AD%E6%96%87%E4%BB%8D%E7%84%B6%E6%97%A0%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html

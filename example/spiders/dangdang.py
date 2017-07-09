@@ -60,24 +60,27 @@ class Dangdang(RedisCrawlSpider):
     def parse_detailpage(self,response):
         item = DangdangItem()
         url = response.url
-        print url
-        name = response.xpath('//div[@class="name_info"]//h1/@title').extract()[0]
+        # print url
+        if url.find("product")>=0:
+            name = response.xpath('//div[@class="name_info"]//h1/@title').extract()[0]
 
-        picurl = response.xpath('//img[@id="largePic"]/@src').extract()[0] if len(response.xpath('//img[@id="largePic"]/@src'))>0 else None
+            picurl = response.xpath('//img[@id="largePic"]/@src').extract()[0] if len(response.xpath('//img[@id="largePic"]/@src'))>0 else None
 
-        comment = response.xpath('//a[@id="comm_num_down"]/text()')[0].extract() if len(response.xpath('//a[@id="comm_num_down"]/text()'))>0 else 0
-        
-        tmp = response.xpath('//span[@id="author"]')
-        publish_author = tmp.xpath('string(.)').extract()[0] if len(tmp)>0 else ""
+            comment = response.xpath('//a[@id="comm_num_down"]/text()')[0].extract() if len(response.xpath('//a[@id="comm_num_down"]/text()'))>0 else 0
+            
+            tmp = response.xpath('//span[@id="author"]')
+            publish_author = tmp.xpath('string(.)').extract()[0] if len(tmp)>0 else ""
 
-        publish_company_temp = response.xpath('//span[@ddt-area="003"]')
-        publish_company = publish_company_temp.xpath('string(.)').extract()[0] if len(publish_company_temp)>0 else ""
+            publish_company_temp = response.xpath('//span[@ddt-area="003"]')
+            publish_company = publish_company_temp.xpath('string(.)').extract()[0] if len(publish_company_temp)>0 else ""
 
-        publish_time = response.xpath('//span[@class="t1"][3]/text()').extract()[0] if len(publish_company_temp)>0 else response.xpath('//span[@class="t1"][2]/text()').extract()[0]
-        
-        price_temp = response.xpath('//p[@id="dd-price"]')
-        price = price_temp.xpath('string(.)')[0].extract().strip()
-        
+            publish_time = response.xpath('//span[@class="t1"][3]/text()').extract()[0] if len(publish_company_temp)>0 else response.xpath('//span[@class="t1"][2]/text()').extract()[0]
+            
+            price_temp = response.xpath('//p[@id="dd-price"]')
+            price = price_temp.xpath('string(.)')[0].extract().strip()
+            
+        if url.find("detail")>=0:
+            return
         # print name
         item['name'] = name
         item['picurl'] = picurl

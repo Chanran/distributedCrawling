@@ -46,6 +46,12 @@ sudo apt-get install -y libffi-dev
 
 sudo apt-get install -y libssl-dev
 
+sudo apt-get install -y libmysqlclient-dev libmysqld-dev
+
+sudo apt-get install -y python-dev 
+
+sudo pip install -y mysql-python
+
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy
 sudo pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple scrapy-redis
 sudo pip install redis
